@@ -1,0 +1,13 @@
+menus:
+    - text: Home
+      url: /
+      icon: fa fa-home
+    - text: About
+      url: /about.html
+      icon: fa fa-comments
+    - text: Blog
+      url: /blog/
+      icon: fa fa-desktop
+    - text: Contact
+      url: /contact.html
+      icon: fa fa-graduation-cap

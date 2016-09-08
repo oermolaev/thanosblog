@@ -1,0 +1,30 @@
+<% loadConfigBundle '/globalconf/' %>
+<!DOCTYPE html>
+<html>
+<head>
+    <% //include "meta.html" %>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    ${include "css.html"}
+</head>
+
+<body class="home overflow-hidden">
+${include "header.html"}
+<div class="container main outer">
+    <div class="row">
+        <div class="col-md-3 col-xs-12">
+            ${include "sidemenu.html"}
+        </div>
+        <div class="col-md-9 col-xs-12 full">
+            ${content}
+            <div class="row">
+                <div class="col-md-12 col-xs-12 footer">
+                    ${include "footer.html"}
+                </div>
+            </div>
+        </div> <!-- end /.col-md-9 -->
+    </div> <!-- end /.row -->
+</div>
+${include "js.html"}
+${include "analytics.html"}
+</body>
+</html>
