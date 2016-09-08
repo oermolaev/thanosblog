@@ -1,9 +1,9 @@
 <ul class="list-separator nav navbar-nav well well-primary ${page.layout}">
-    <% page.menus?.each { menu -> %>
-    <% def current = "" %>
-    <% def target = menu.target %>
-    <% if (!target) { target = '_self' } %>
-    <% if (page.url == menu.url || page.layout == menu.layout) { current = 'current-menu-item' } else { current = "" } %>
+    <% page.menus?.each { menu ->
+     def current = ""
+     def target = menu.target
+     if (!target) { target = '_self' }
+     if (page.url == menu.url || page.layout == menu.layout) { current = 'current-menu-item' } else { current = "" } %>
     <li class="col-lg-12 col-md-12 col-sm-4 col-xs-12 ${current}"><a href="${menu.url}" target="${target}"><i class="${menu.icon}"></i> ${menu.text}</a></li>
     <% } %>
 </ul>
