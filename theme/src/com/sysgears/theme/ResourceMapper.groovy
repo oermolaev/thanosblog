@@ -24,8 +24,8 @@ class ResourceMapper {
 
         def refinedResources = resources.findResults(filterPublished).collect { Map resource ->
             customizeUrls <<
-                fillDates <<
-                resource
+                    fillDates <<
+                    resource
         }.sort { -it.date.time }
 
         customizeModels << refinedResources
@@ -100,8 +100,8 @@ class ResourceMapper {
      * Fills in page `date` and `updated` fields 
      */
     private def fillDates = { Map it ->
-        def update = [date: it.date ? Date.parse(site.datetime_format, it.date) : new Date(it.dateCreated as Long),
-                updated: it.updated ? Date.parse(site.datetime_format, it.updated) : new Date(it.lastUpdated as Long)]
+        def update = [date   : it.date ? Date.parse(site.datetime_format, it.date) : new Date(it.dateCreated as Long),
+                      updated: it.updated ? Date.parse(site.datetime_format, it.updated) : new Date(it.lastUpdated as Long)]
         it + update
     }
 }

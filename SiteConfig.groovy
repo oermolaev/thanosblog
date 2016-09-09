@@ -66,6 +66,10 @@ subtitle = "SUBTITLOS"
 logo = "/images/avatar.png"
 author = "AUTHOR PSARIDIS"
 
+social {
+    twitter_username = 'thanosfish'
+    facebook_username = 'ThanosFisherman'
+}
 // Custom commands-line commands.
 commands = [
 /*
@@ -75,36 +79,38 @@ commands = [
  * pageTitle - new page title
  */
 'create-page': { String location, String pageTitle ->
-        file = new File(content_dir, location)
-        file.parentFile.mkdirs()
-        file.exists() || file.write("""---
+    file = new File(content_dir, location)
+    file.parentFile.mkdirs()
+    file.exists() || file.write("""---
 layout: default
 title: "${pageTitle}"
 published: true
 ---
-""")},
+""")
+},
 /*
  * Creates new post.
  *
  * title - new post title
  */
 'create-post': { String postTitle ->
-            def date = new Date()
-            def fileDate = date.format("yyyy-MM-dd")
-            def filename = fileDate + "-" + postTitle.encodeAsSlug() + ".markdown"
-            def blogDir = new File(content_dir + "${posts_base_url}")
-            if (!blogDir.exists()) {
-                blogDir.mkdirs()
-            }
-            def file = new File(blogDir, filename)
+    def date = new Date()
+    def fileDate = date.format("yyyy-MM-dd")
+    def filename = fileDate + "-" + postTitle.encodeAsSlug() + ".markdown"
+    def blogDir = new File(content_dir + "${posts_base_url}")
+    if (!blogDir.exists()) {
+        blogDir.mkdirs()
+    }
+    def file = new File(blogDir, filename)
 
-            file.exists() || file.write("""---
+    file.exists() || file.write("""---
 layout: post
 title: "${postTitle}"
 image:
 date: "${date.format(datetime_format)}"
 published: true
 ---
-""")},
+""")
+},
 
 ]

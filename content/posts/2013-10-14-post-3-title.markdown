@@ -3,6 +3,7 @@ layout: post
 title: "Post 3 title"
 image: fa fa-sticky-note
 date: 2013-10-14 15:27
+categories: [grain, groovy, thanos]
 published: true
 ---
 
