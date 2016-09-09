@@ -63,7 +63,7 @@ deploy = new GHPagesDeployer(site).deploy
 
 title = "TITLOS"
 subtitle = "SUBTITLOS"
-logo = "images/avatar.png"
+logo = "/images/avatar.png"
 author = "AUTHOR PSARIDIS"
 
 // Custom commands-line commands.
