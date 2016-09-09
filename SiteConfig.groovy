@@ -6,13 +6,12 @@ import com.sysgears.theme.taglib.ThemeTagLib
 resource_mapper = new ResourceMapper(site).map
 tag_libs = [ThemeTagLib]
 
+excludes += ['/_[^/]*/.*'] // excludes directories that start from '_'
+
 features {
-    highlight = 'pygments' // 'none', 'pygments'
+    highlight = 'none' // 'none', 'pygments'
+    compass = 'none'
     markdown = 'txtmark'   // 'txtmark', 'pegdown'
-    asciidoc {
-        opts = ['source-highlighter': 'coderay',
-                'icons': 'font']
-    }
 }
 
 environments {
@@ -23,7 +22,7 @@ environments {
     }
     prod {
         log.info 'Production environment is used'
-        url = 'thanosfisherman.github.io' // site URL, for example http://www.example.com
+        url = '' // site URL, for example http://www.example.com
         show_unpublished = false
         features {
             minify_xml = false
@@ -52,6 +51,9 @@ ruby {
     //ruby_gems = '2.2.2'
 }
 
+// Site configuration.
+posts_base_url = '/posts/' // the base url for blog entries
+
 // Deployment settings.
 s3_bucket = '' // your S3 bucket name
 deploy_s3 = "s3cmd sync --acl-public --reduced-redundancy ${destination_dir}/ s3://${s3_bucket}/"
@@ -63,6 +65,7 @@ title = "TITLOS"
 subtitle = "SUBTITLOS"
 logo = "images/avatar.png"
 author = "AUTHOR PSARIDIS"
+
 // Custom commands-line commands.
 commands = [
 /*
@@ -79,5 +82,29 @@ layout: default
 title: "${pageTitle}"
 published: true
 ---
-""")}
+""")},
+/*
+ * Creates new post.
+ *
+ * title - new post title
+ */
+'create-post': { String postTitle ->
+            def date = new Date()
+            def fileDate = date.format("yyyy-MM-dd")
+            def filename = fileDate + "-" + postTitle.encodeAsSlug() + ".markdown"
+            def blogDir = new File(content_dir + "${posts_base_url}")
+            if (!blogDir.exists()) {
+                blogDir.mkdirs()
+            }
+            def file = new File(blogDir, filename)
+
+            file.exists() || file.write("""---
+layout: post
+title: "${postTitle}"
+image:
+date: "${date.format(datetime_format)}"
+published: true
+---
+""")},
+
 ]
