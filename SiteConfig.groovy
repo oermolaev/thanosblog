@@ -65,6 +65,7 @@ title = "TITLOS"
 subtitle = "SUBTITLOS"
 logo = "/images/avatar.png"
 author = "AUTHOR PSARIDIS"
+description = 'A website about android programming'
 
 social {
     twitter_username = 'thanosfish'
