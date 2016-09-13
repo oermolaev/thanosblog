@@ -71,6 +71,12 @@ social {
     twitter_username = 'thanosfish'
     facebook_username = 'ThanosFisherman'
 }
+
+// Blog and Archive.
+posts_per_blog_page = 3             // the number of posts to display per blog page
+posts_per_archive_page = 10         // the number of posts to display per archive page
+
+
 // Custom commands-line commands.
 commands = [
 /*

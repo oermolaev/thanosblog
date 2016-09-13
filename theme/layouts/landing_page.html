@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="well">
     <div class="list-group">
-        <% page.posts?.each { item ->
+        <% page.posts.each { item ->
         def brief = item.render().content.split('<!--more-->').head() %>
         <div class="list-group-item">
             <div class="row-action-primary">

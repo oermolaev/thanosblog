@@ -7,9 +7,6 @@ layout: default
         <hr/>
         ${include "share-page.html"}
     </article>
-    <% page.posts.each { cat -> %>
-    ${cat.title}
-    <% } %>
     <hr/>
 
     <% def hasSimilar = 0
@@ -26,7 +23,7 @@ layout: default
             <li class="relatedPost">
                 <a href="${site.url}${post.url}">${post.title}</a>
                 <% if (post.categories) { %>
-                <small>(Categories: <% post.categories.each { -> category %><a href="/category/${category}">${category}</a>
+                <small>(Categories: <% post.categories.each { -> category %><a href="${link ('/categories/' + category.encodeAsSlug())}/">${category.toLowerCase()}</a>
                     <% if (post.categories.last() != category) { %>, <% } %>
                     <% } %>)
                 </small>
@@ -65,6 +62,7 @@ layout: default
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     /* ]]> */
+
 
 
 
