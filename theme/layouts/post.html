@@ -9,32 +9,22 @@ layout: default
     </article>
     <hr/>
 
-    <% def hasSimilar = 0
-    page.posts.each { -> post
-    def postHasSimilar = false
-    post.categories.each { -> tag
-    page.categories.each { -> thisTag
-    if (postHasSimilar == false && hasSimilar.size < 6 && post != page && tag == thisTag) {
-    if (hasSimilar.size == 0) { %>
     <div class="panel-body">
         <h4>Related Posts</h4>
         <ul>
-            <% } %>
+            <% page.related.each { post -> %>
             <li class="relatedPost">
-                <a href="${site.url}${post.url}">${post.title}</a>
-                <% if (post.categories) { %>
-                <small>(Categories: <% post.categories.each { -> category %><a href="${link ('/categories/' + category.encodeAsSlug())}/">${category.toLowerCase()}</a>
-                    <% if (post.categories.last() != category) { %>, <% } %>
+                <a href="${post.url}">${post.title}</a>
+                <span>( Categories:
+                <% post.categories.each { cat -> %>
+                    <a href="${link ('/categories/' + cat.encodeAsSlug())}/">${cat.toLowerCase()}</a>
                     <% } %>)
-                </small>
-                <% } %>
+                </span>
             </li>
-            <% hasSimilar++
-            postHasSimilar = true } } } }
-            if (hasSimilar > 0) { %>
+            <% } %>
         </ul>
     </div>
-    <% } %>
+
     <div class="PageNavigation">
         <% if (page.prev_post?.url) { %>
         <a class="prev pull-left" href="${link page.prev_post.url}">&laquo; ${page.prev_post.title}</a>
@@ -62,8 +52,6 @@ layout: default
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     /* ]]> */
-
-
 
 
         </script>
