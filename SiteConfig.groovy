@@ -1,10 +1,11 @@
 import com.sysgears.theme.ResourceMapper
 import com.sysgears.theme.deploy.GHPagesDeployer
 import com.sysgears.theme.taglib.ThemeTagLib
+import com.sysgears.theme.taglib.OctopressTagLib
 
 // Resource mapper and tag libs.
 resource_mapper = new ResourceMapper(site).map
-tag_libs = [ThemeTagLib]
+tag_libs = [ThemeTagLib, OctopressTagLib]
 
 excludes += ['/_[^/]*/.*'] // excludes directories that start from '_'
 
@@ -25,10 +26,10 @@ environments {
         url = '' // site URL, for example http://www.example.com
         show_unpublished = false
         features {
-            minify_xml = false
-            minify_html = false
-            minify_js = false
-            minify_css = false
+            minify_xml = true
+            minify_html = true
+            minify_js = true
+            minify_css = true
         }
     }
     cmd {
@@ -61,10 +62,9 @@ deploy_s3 = "s3cmd sync --acl-public --reduced-redundancy ${destination_dir}/ s3
 gh_pages_url = 'git@github.com:ThanosFisherman/thanosfisherman.github.io.git' // path to GitHub repository in format git@github.com:{username}/{repo}.git
 deploy = new GHPagesDeployer(site).deploy
 
-title = "TITLOS"
-subtitle = "SUBTITLOS"
+title = "Thanos' coding adventures"
 logo = "/images/avatar.png"
-author = "AUTHOR PSARIDIS"
+author = "Thanos Psaridis"
 description = 'A website about android programming'
 
 social {
