@@ -3,6 +3,7 @@ layout: post
 title: "jsFiddle tag"
 date: "2014-01-10 13:00"
 author: SysGears
+image: fa fa-sticky-note
 categories: [grain, groovy]
 comments: true
 published: true

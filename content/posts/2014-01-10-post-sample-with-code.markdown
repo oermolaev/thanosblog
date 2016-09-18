@@ -3,6 +3,7 @@ layout: post
 title: "Post sample with code"
 date: "2014-01-10 15:00"
 author: SysGears
+image: fa fa-sticky-note
 categories: [grain, groovy]
 comments: true                    # disables/enables comments section for the post
 published: true                   # defines whether to render the post in 'generate' mode

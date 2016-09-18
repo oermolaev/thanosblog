@@ -2,6 +2,7 @@
 layout: post
 title: "Pullquote tag"
 date: "2014-01-08 14:00"
+image: fa fa-sticky-note
 author: SysGears
 categories: [grain, groovy]
 comments: true

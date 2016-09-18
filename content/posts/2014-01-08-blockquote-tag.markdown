@@ -2,6 +2,7 @@
 layout: post
 title: "Blockqoute tag"
 date: "2014-01-08 13:00"
+image: fa fa-sticky-note
 author: SysGears
 categories: [grain, groovy]
 comments: true
