@@ -1,7 +1,7 @@
 import com.sysgears.theme.ResourceMapper
 import com.sysgears.theme.deploy.GHPagesDeployer
-import com.sysgears.theme.taglib.ThemeTagLib
 import com.sysgears.theme.taglib.OctopressTagLib
+import com.sysgears.theme.taglib.ThemeTagLib
 
 // Resource mapper and tag libs.
 resource_mapper = new ResourceMapper(site).map
@@ -75,7 +75,6 @@ social {
 // Blog and Archive.
 posts_per_blog_page = 3             // the number of posts to display per blog page
 posts_per_archive_page = 10         // the number of posts to display per archive page
-
 
 // Custom commands-line commands.
 commands = [
