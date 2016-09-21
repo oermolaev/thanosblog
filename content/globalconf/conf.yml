@@ -11,7 +11,7 @@ menus:
     - text: Contact
       url: /contact.html
       icon: fa fa-graduation-cap
-projects:
+unused:
     - name: GWPA
       url: /
       image: /images/placeholder.jpg
