@@ -1,0 +1,23 @@
+menus:
+    - text: Home
+      url: /
+      icon: fa fa-home
+    - text: About
+      url: /about.html
+      icon: fa fa-comments
+    - text: Projects
+      url: /projects.html
+      icon: fa fa-desktop
+    - text: Contact
+      url: /contact.html
+      icon: fa fa-graduation-cap
+projects:
+    - name: GWPA
+      url: /
+      image: /images/placeholder.jpg
+    - name: WiFi Sherlock
+      url: /
+      image: /images/placeholder.jpg
+    - name: YAND
+      url: /
+      image: /images/placeholder.jpg
