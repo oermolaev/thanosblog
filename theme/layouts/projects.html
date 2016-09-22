@@ -10,13 +10,13 @@ layout: default
         <div class="projects row">
             ${include "project_tags.html"}
             <% for (i in page.projects) { %>
-            <div class="project-item col-md-4 col-sm-6 col-xs-12" data-tags='${i.tags.inspect().replaceAll("\'", "\"")}'>
+            <div class="project-item col-md-4 col-sm-6 col-xs-12" data-tags='${i.tags.inspect().toLowerCase().replaceAll("\'", "\"")}'>
                 <div class="well project-outer">
                     <div class="project-inner">
                         <a href="${i.image}" class="thickbox">
                             <div class="project-img bordered" style="background-image: url('${i.image}');"></div>
                         </a>
-                        <% if (i.url) { %> <a href="${i.url}"> <% } %>
+                        <% if (i.url) { %> <a href="${i.url}" target="_blank"> <% } %>
                         <h3 class="project-headlines">${i.name}</h3>
                         <% if (i.url) { %> </a> <% } %>
                         <div class="project-content">
@@ -31,7 +31,7 @@ layout: default
                         </div>
                         <div class="project-footer">
                             <% if (i.url) { %>
-                            <a href="${i.url}" class="btn btn-info btn-raised btn-sm project-link">View</a>
+                            <a href="${i.url}" target="_blank" class="btn btn-info btn-raised btn-sm project-link">View</a>
                             <% } %>
                             <% if (i.date) { %>
                             <span class="project-timeline">${i.date}</span> <% } %>
