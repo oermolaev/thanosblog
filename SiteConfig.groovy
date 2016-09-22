@@ -62,10 +62,10 @@ deploy_s3 = "s3cmd sync --acl-public --reduced-redundancy ${destination_dir}/ s3
 gh_pages_url = 'git@github.com:ThanosFisherman/thanosfisherman.github.io.git' // path to GitHub repository in format git@github.com:{username}/{repo}.git
 deploy = new GHPagesDeployer(site).deploy
 
-title = "Thanos' coding adventures"
+title = "Thanos' development adventures"
 logo = "/images/avatar.jpg"
 author = "Thanos Psaridis"
-description = 'A website about android programming'
+description = 'A website about Android programming'
 
 social {
     twitter_username = 'thanosfish'
