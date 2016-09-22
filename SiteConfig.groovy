@@ -63,7 +63,7 @@ gh_pages_url = 'git@github.com:ThanosFisherman/thanosfisherman.github.io.git' //
 deploy = new GHPagesDeployer(site).deploy
 
 title = "Thanos' coding adventures"
-logo = "/images/avatar.png"
+logo = "/images/avatar.jpg"
 author = "Thanos Psaridis"
 description = 'A website about android programming'
 
