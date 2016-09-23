@@ -62,7 +62,7 @@ deploy_s3 = "s3cmd sync --acl-public --reduced-redundancy ${destination_dir}/ s3
 gh_pages_url = 'git@github.com:ThanosFisherman/thanosfisherman.github.io.git' // path to GitHub repository in format git@github.com:{username}/{repo}.git
 deploy = new GHPagesDeployer(site).deploy
 
-title = "Thanos' development adventures"
+title = "Development adventures"
 logo = "/images/avatar.jpg"
 author = "Thanos Psaridis"
 description = 'A website about Android programming'
@@ -71,7 +71,12 @@ social {
     twitter_username = 'thanosfish'
     facebook_username = 'ThanosFisherman'
 }
-
+// RSS feed.
+rss {
+    feed = 'atom.xml'               // url to blog RSS feed
+    email = ''                      // email address for the RSS feed
+    post_count = 5                 // the number of posts in the RSS feed
+}
 // Blog and Archive.
 posts_per_blog_page = 3             // the number of posts to display per blog page
 posts_per_archive_page = 10         // the number of posts to display per archive page

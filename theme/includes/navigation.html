@@ -1,5 +1,5 @@
 <ul class="list-separator nav navbar-nav well well-primary ${page.layout}">
-    <% page.menus?.each { menu ->
+    <% page.menus.each { menu ->
      def current = ""
      def target = menu.target
      if (!target) { target = '_self' }

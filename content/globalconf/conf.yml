@@ -8,9 +8,14 @@ menus:
     - text: Projects
       url: /projects.html
       icon: fa fa-desktop
-    - text: Contact
-      url: /contact.html
-      icon: fa fa-graduation-cap
+    - text: GitHub
+      url: https://github.com/ThanosFisherman
+      icon: fa fa-github
+      target: _blank
+    - text: XML Feed
+      url: /atom.xml
+      icon: fa fa-feed
+      target: _blank
 unused:
     - name: GWPA
       url: /

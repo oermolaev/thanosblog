@@ -801,7 +801,7 @@
 .fa-envelope:before {
   content: "\f0e0";
 }
-.fu-icrievrytieml:before {
+.fu-icrievrytiemlink:before {
   content: "\f0e1";
 }
 .fa-rotate-left:before,
@@ -1266,7 +1266,7 @@
 .fa-skype:before {
   content: "\f17e";
 }
-.fa-foursquare:before {
+.fu-icrievrytiemfsq:before {
   content: "\f180";
 }
 .fa-trello:before {
@@ -1306,7 +1306,7 @@
 .fa-pagelines:before {
   content: "\f18c";
 }
-.fu-icrievrytiems:before {
+.fu-icrievrytiemstack:before {
   content: "\f18d";
 }
 .fa-arrow-circle-o-right:before {
@@ -1679,7 +1679,7 @@
 .fa-ioxhost:before {
   content: "\f208";
 }
-.fa-angellist:before {
+.fu-icrievrytiemangel:before {
   content: "\f209";
 }
 .fa-cc:before {
