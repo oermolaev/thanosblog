@@ -10,7 +10,7 @@ layout: default
         <div class="projects row">
             ${include "project_tags.html"}
             <% for (i in page.projects) { %>
-            <div class="project-item col-md-4 col-sm-6 col-xs-12" data-tags='${i.tags.collect { '"' + it + '"'}.toString().toLowerCase() }'>
+            <div class="project-item col-md-4 col-sm-6 col-xs-12" data-tags='${i.tags.collect { '"' + it + '"'}.toString().toLowerCase()}'>
                 <div class="well project-outer">
                     <div class="project-inner">
                         <a href="${i.image}" class="thickbox">
