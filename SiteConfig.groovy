@@ -23,7 +23,7 @@ environments {
     }
     prod {
         log.info 'Production environment is used'
-        url = '' // site URL, for example http://www.example.com
+        url = 'https://thanosfisherman.github.io/' // site URL, for example http://www.example.com
         show_unpublished = false
         features {
             minify_xml = true
