@@ -70,6 +70,7 @@ description = 'A website about Android programming'
 social {
     twitter_username = 'thanosfish'
     facebook_username = 'ThanosFisherman'
+    disqus_username = 'thanosfisherman'
 }
 // RSS feed.
 rss {
