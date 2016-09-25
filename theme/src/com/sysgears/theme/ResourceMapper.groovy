@@ -23,10 +23,9 @@ class ResourceMapper {
     def map = { resources ->
 
         def refinedResources = resources.findResults(filterPublished).collect { Map resource ->
-            customizeUrls << fillDates << fillRelatedPosts << resource
+            fillRelatedPosts << customizeUrls << fillDates << resource
         }.sort { -it.date.time }
-
-        customizeModels << refinedResources
+        checkForDuplicateUrls << customizeModels << refinedResources
     }
 
     /**
@@ -160,5 +159,20 @@ class ResourceMapper {
         def update = [date   : it.date ? Date.parse(site.datetime_format, it.date) : new Date(it.dateCreated as Long),
                       updated: it.updated ? Date.parse(site.datetime_format, it.updated) : new Date(it.lastUpdated as Long)]
         it + update
+    }
+
+    /**
+     * Ensures all resources have unique URLs.
+     *
+     * @param resources to validate.
+     * @throw RuntimeException when a duplicate URL is found.
+     * @return the resources unchanged.
+     */
+    private def checkForDuplicateUrls = { List resources ->
+        resources.groupBy { it.url }.find { it.value.size() > 1 }?.value*.url?.unique()?.each {
+            throw new RuntimeException("Encountered duplicate resource URL: $it")
+        }
+
+        resources
     }
 }
