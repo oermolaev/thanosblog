@@ -17,12 +17,12 @@ Note, that theme `img` tag can handle all the attributes of standard HTML 'img' 
 ####Code:
 
 ```jsp
-<%= img src: '/images/email.png', alt: 'email image' %>
+<%= img src: '/images/placeholder.jpg', alt: 'email image' %>
 ```
 
 ####Result:
 
-<%= img src: '/images/email.png', alt: 'email image' %>
+<%= img src: '/images/placeholder.jpg', alt: 'email image' %>
 
 ##Link to the external image:
 
