@@ -9,9 +9,12 @@ tag_libs = [ThemeTagLib, OctopressTagLib]
 
 excludes += ['/_[^/]*/.*'] // excludes directories that start from '_'
 
+base_dir = System.getProperty('user.dir')
+theme_dir = "${base_dir}/theme"
+
 features {
     highlight = 'none' // 'none', 'pygments'
-    compass = 'none'
+    compass = 'auto'
     markdown = 'txtmark'   // 'txtmark', 'pegdown'
 }
 

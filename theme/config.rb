@@ -3,7 +3,7 @@
     new File(baseDir, relativePath).canonicalPath.replace("\\", "/")
   }
   
-  def cssPath = toCanonicalPath site.cache_dir, '/compass/stylesheets'
+  def cssPath = toCanonicalPath site.theme_dir, '/stylesheets'
   new File(cssPath).mkdirs()
 %>
 
