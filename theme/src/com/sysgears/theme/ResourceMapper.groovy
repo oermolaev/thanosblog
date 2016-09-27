@@ -23,9 +23,10 @@ class ResourceMapper {
     def map = { resources ->
 
         def refinedResources = resources.findResults(filterPublished).collect { Map resource ->
-            fillRelatedPosts << customizeUrls << fillDates << resource
+            customizeUrls << fillDates << resource
         }.sort { -it.date.time }
-        checkForDuplicateUrls << customizeModels << refinedResources
+
+        checkForDuplicateUrls << customizeModels << fillRelatedPosts << refinedResources
     }
 
     /**
@@ -108,30 +109,26 @@ class ResourceMapper {
     /**
      * Fills in page 'related' field which may contain related posts.
      *
-     * Related posts here are pages under /posts/ location which have at least one
+     * Related posts here are pages based on the 'post' layout and which have at least one
      * common entry in the "categories" list property.
      */
-    private def fillRelatedPosts = { Map it ->
-        isPost(it) ?
-                it + [related: getPosts().grep { post -> !post.categories.disjoint(it.categories) }] :
-                it
+    private fillRelatedPosts = { List<Map> resources ->
+        def posts = resources.findAll isPost
+
+        resources.collect { Map it ->
+            isPost(it) ?
+                    it + [related: posts.grep { post -> !post.categories.disjoint(it.categories) }] :
+                    it
+        }
     }
 
     /**
      * Checks whether provided resource is a blog post page or not.
      */
     private def isPost = { Map it ->
-        it.location.startsWith("/posts/")
+        it?.layout == 'post'
     }
 
-    /**
-     * Retrieves all the blog post pages of the website.
-     *
-     * @return website blog posts collection
-     */
-    private List<Map> getPosts() {
-        site.pages.findAll isPost
-    }
     /**
      * Creates url for page. Cuts date and extension from the file name '2013-01-01-file-name.markdown'.
      *
